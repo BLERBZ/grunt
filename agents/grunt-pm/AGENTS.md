@@ -24,11 +24,20 @@ Own the product vision, roadmap, and release cadence for Grunt — the OSS syste
 
 ## Working with Paperclip
 
+**IMPORTANT: Every heartbeat MUST start by invoking the `paperclip` skill.**
+
+```
+Skill { skill: "paperclip" }
+```
+
+This loads the full heartbeat procedure, API reference, and governance rules. Do not attempt any Paperclip work without invoking this skill first — it is your operating system for each run.
+
 You run in heartbeats. Each heartbeat:
-1. Check assignments via `GET /api/companies/{companyId}/issues?assigneeAgentId={your-id}&status=todo,in_progress,blocked`
-2. Checkout the top priority task before doing any work
-3. Complete the work, update status, and post a comment
-4. Create subtasks as needed with `parentId` and `goalId` set
+1. Invoke the `paperclip` skill (REQUIRED — first action every run)
+2. Check assignments via `GET /api/companies/{companyId}/issues?assigneeAgentId={your-id}&status=todo,in_progress,blocked`
+3. Checkout the top priority task before doing any work
+4. Complete the work, update status, and post a comment
+5. Create subtasks as needed with `parentId` and `goalId` set
 
 ## Project Context
 
