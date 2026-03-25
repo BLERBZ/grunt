@@ -1,0 +1,81 @@
+#!/usr/bin/env bash
+# grunt — Grunt project startup command
+# Usage: grunt work
+
+set -euo pipefail
+
+GRUNT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+GRUNT_VERSION="0.1.0-alpha"
+
+usage() {
+  cat <<EOF
+grunt $GRUNT_VERSION — Eliminate human grunt work.
+
+Usage:
+  grunt work          Start Grunt (daily evolution cycle)
+  grunt status        Show current cycle status
+  grunt score         Run scoring framework on agent templates
+  grunt help          Show this help
+
+EOF
+}
+
+cmd_work() {
+  echo ""
+  echo "  ██████╗ ██████╗ ██╗   ██╗███╗   ██╗████████╗"
+  echo "  ██╔════╝ ██╔══██╗██║   ██║████╗  ██║╚══██╔══╝"
+  echo "  ██║  ███╗██████╔╝██║   ██║██╔██╗ ██║   ██║   "
+  echo "  ██║   ██║██╔══██╗██║   ██║██║╚██╗██║   ██║   "
+  echo "  ╚██████╔╝██║  ██║╚██████╔╝██║ ╚████║   ██║   "
+  echo "   ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   "
+  echo ""
+  echo "  Eliminating human grunt work, one cycle at a time."
+  echo ""
+  echo "  Version:  $GRUNT_VERSION"
+  echo "  CWD:      $GRUNT_DIR"
+  echo "  Cycle:    $(date -u '+%Y-%m-%d') (Daily Generation)"
+  echo ""
+
+  # Check for daily cycle script
+  if [[ -f "$GRUNT_DIR/scripts/daily-cycle.sh" ]]; then
+    echo "  Starting daily evolution cycle..."
+    bash "$GRUNT_DIR/scripts/daily-cycle.sh"
+  else
+    echo "  Daily cycle script not yet configured."
+    echo "  See docs/ROADMAP.md for v0.1 milestones."
+    echo ""
+    echo "  Next steps:"
+    echo "    1. Define agent persona templates in agents/"
+    echo "    2. Configure daily-cycle.sh in scripts/"
+    echo "    3. Run grunt score to test the scoring framework"
+    echo ""
+  fi
+}
+
+cmd_status() {
+  echo "Grunt Status — $(date -u '+%Y-%m-%d %H:%M UTC')"
+  echo ""
+  local template_count
+  template_count=$(find "$GRUNT_DIR/agents" -name "*.md" 2>/dev/null | wc -l | tr -d ' ')
+  echo "  Agent templates: $template_count"
+  echo "  Version:         $GRUNT_VERSION"
+  echo ""
+}
+
+cmd_score() {
+  echo "Scoring framework not yet implemented."
+  echo "See docs/SCORING.md for the specification."
+}
+
+# Main dispatch
+case "${1:-help}" in
+  work)    cmd_work ;;
+  status)  cmd_status ;;
+  score)   cmd_score ;;
+  help|--help|-h) usage ;;
+  *)
+    echo "Unknown command: $1"
+    usage
+    exit 1
+    ;;
+esac
