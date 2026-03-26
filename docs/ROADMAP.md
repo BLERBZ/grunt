@@ -7,11 +7,11 @@
 - [x] `grunt work` startup command
 - [x] Agent persona template schema defined (`agents/TEMPLATE.md`)
 - [x] Scientific scoring framework documented (`docs/SCORING.md`)
-- [x] 4 agent persona templates shipped (3 Gold, 1 Pass)
+- [x] 5 agent persona templates shipped (3 Gold, 2 Pass)
 - [x] GitHub repo live at github.com/BLERBZ/grunt
 - [ ] Contributing guide clear enough for first external contributor
-- [ ] Update README with template leaderboard (current scores)
-- [ ] `.gitignore` committed
+- [x] Update README with template leaderboard (current scores)
+- [x] `.gitignore` committed
 
 **Template Leaderboard (v0.1):**
 
@@ -21,6 +21,7 @@
 | Code Reviewer | v2 | 0.82 | Gold |
 | Standup Summarizer | v1 | 0.81 | Gold |
 | PR Description Writer | v1 | 0.77 | Pass |
+| Documentation Updater | v1 | 0.72 | Pass |
 
 ## v0.2 — Automated Scoring Pipeline (Q3 2026)
 
