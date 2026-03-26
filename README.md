@@ -32,14 +32,19 @@ grunt work
 
 ```
 grunt/
-├── agents/          # Agent persona/profile templates
-│   └── grunt-pm/    # Grunt PM agent (Paperclip)
-├── docs/            # Scientific method, scoring framework, ADRs
-│   ├── VISION.md    # Product vision v0.1
-│   ├── SCORING.md   # Scientific scoring framework
-│   └── ROADMAP.md   # Milestone roadmap
-├── scripts/         # Daily evolution scripts
-└── grunt            # Startup command (grunt work)
+├── agents/                        # Agent persona/profile templates
+│   ├── TEMPLATE.md                # Template schema
+│   ├── standup-summarizer.md      # ⭐ Gold (0.81)
+│   ├── code-reviewer.md           # ⭐ Gold (0.82)
+│   ├── release-notes-writer.md    # ⭐ Gold (0.83)
+│   ├── pr-description-writer.md   # ✅ Pass (0.77)
+│   └── grunt-ceo/                 # Grunt CEO agent (Paperclip)
+├── docs/                          # Scientific method, scoring, roadmap
+│   ├── VISION.md
+│   ├── SCORING.md
+│   └── ROADMAP.md
+├── scripts/                       # Daily evolution scripts (v0.2)
+└── grunt                          # Startup command (grunt work)
 ```
 
 ### Daily Generation Cycle
@@ -61,6 +66,17 @@ Grunt templates live in `agents/`. Each template defines:
 - **Score** — effectiveness rating (0.0–1.0) against the scientific framework
 - **Lineage** — parent templates, iteration history
 - **Grunt Units** — units of human grunt work this persona eliminates per cycle
+
+### Template Leaderboard
+
+| Template | Version | Composite | Tier | Grunt Work Eliminated |
+|----------|---------|-----------|------|-----------------------|
+| Release Notes Writer | v2 | **0.83** | ⭐ Gold | Changelog & release notes from git history |
+| Code Reviewer | v2 | **0.82** | ⭐ Gold | Automated PR review for bugs, style, security |
+| Standup Summarizer | v1 | **0.81** | ⭐ Gold | Async standup digests — no meetings needed |
+| PR Description Writer | v1 | **0.77** | ✅ Pass | PR descriptions from diffs & commit history |
+
+> **Scoring tiers:** ⭐ Gold (≥ 0.80) • ✅ Pass (0.60–0.79) • ⚠️ Review (0.40–0.59) • ❌ Fail (< 0.40)
 
 ---
 
