@@ -38,6 +38,7 @@ grunt/
 │   ├── code-reviewer.md           # ⭐ Gold (0.82)
 │   ├── release-notes-writer.md    # ⭐ Gold (0.83)
 │   ├── pr-description-writer.md   # ✅ Pass (0.77)
+│   ├── documentation-updater.md   # ✅ Pass (0.72)
 │   └── grunt-ceo/                 # Grunt CEO agent (Paperclip)
 ├── docs/                          # Scientific method, scoring, roadmap
 │   ├── VISION.md
@@ -75,6 +76,7 @@ Grunt templates live in `agents/`. Each template defines:
 | Code Reviewer | v2 | **0.82** | ⭐ Gold | Automated PR review for bugs, style, security |
 | Standup Summarizer | v1 | **0.81** | ⭐ Gold | Async standup digests — no meetings needed |
 | PR Description Writer | v1 | **0.77** | ✅ Pass | PR descriptions from diffs & commit history |
+| Documentation Updater | v1 | **0.72** | ✅ Pass | Keeps docs in sync with code changes |
 
 > **Scoring tiers:** ⭐ Gold (≥ 0.80) • ✅ Pass (0.60–0.79) • ⚠️ Review (0.40–0.59) • ❌ Fail (< 0.40)
 
